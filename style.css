@@ -462,12 +462,7 @@ a {
 }
 
 /* ==========================================================================
-   CÓDIGO NOVO: DROPDOWN DE FUNCIONAMENTO E LOCAL
-   ========================================================================== */
-
-/* Caixa que vai fazer o efeito de sanfona (slide down) */
-/* ==========================================================================
-   CÓDIGO CORRIGIDO: SANFONA DE FUNCIONAMENTO E LOCAL
+   SANFONA DE HORÁRIOS E LOCAL (computador)
    ========================================================================== */
 
 /* Garante o alinhamento correto do botão no menu */
@@ -480,8 +475,7 @@ a {
 .menu-drop-btn {
   background: none;
   border: none;
-  color: # color: var(--tinta);
-  /* Ajuste para a cor escura dos seus links atuais */
+  color: var(--tinta);
   font-family: inherit;
   font-size: 1rem;
   font-weight: 500;
@@ -494,8 +488,7 @@ a {
 }
 
 .menu-drop-btn:hover {
-  color: color: var(--vermelho);
-  /* Cor cinza ao passar o mouse */
+  color: var(--vermelho);
 }
 
 /* Caixa com as informações (Começa fechada) */
@@ -505,7 +498,7 @@ a {
   position: absolute;
   top: 100%;
   right: 0;
-  transform: transform: translateY(0);
+  transform: translateY(0);
   background-color: #1a1a1a;
   /* Fundo preto elegante para destacar do fundo bege */
   border: 1px solid #333;
@@ -523,8 +516,7 @@ a {
 .aba-conteudo.mostrar {
   display: grid !important;
   /* Força a exibição em duas colunas */
-  transform: transform: translateY(10px);
-  ;
+  transform: translateY(10px);
 }
 
 /* Estilos dos textos dentro da caixinha */
@@ -560,22 +552,6 @@ a {
 
 .btn-como-chegar:hover {
   background-color: #e0e0e0;
-}
-
-
-.aba-conteudo {
-  position: fixed;
-  top: 80px;
-  left: 5%;
-  right: 5%;
-  width: 90%;
-  transform: none;
-  grid-template-columns: 1fr;
-}
-
-.aba-conteudo.mostrar {
-  transform: translateY(10px);
-}
 }
 
 /* ---------- Painel de horário e endereço (só no celular) ---------- */
@@ -669,7 +645,9 @@ a {
   }
 }
 
-/* No computador: só a aba "Funcionamento e Local" (a do menu do celular fica escondida) */
+/* No computador: só a aba "Horários e local" (a do menu do celular fica escondida) */
 @media (min-width: 761px) {
-  .nav-info { display: none !important; }
+  .nav-info {
+    display: none !important;
+  }
 }
