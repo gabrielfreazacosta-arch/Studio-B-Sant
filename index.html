@@ -54,17 +54,19 @@
                     </div>
                 </details>
             </div>
+
             <a href="#servicos">Serviços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#destaques">Vídeos</a>
             <a href="#sobre">Sobre</a>
-            <!-- Cole este bloco no lugar do link antigo do menu -->
+            <a href="#espaco">Nosso Espaço</a>
+
             <div class="menu-dropdown-container">
-                <!-- Botão que ativa a abinha -->
                 <button id="btn-funcionamento" class="menu-drop-btn" type="button" aria-expanded="false"
                     aria-controls="aba-informacoes">
                     Horários e local ▾
                 </button>
 
-                <!-- Aba expandível com as informações reais -->
                 <div id="aba-informacoes" class="aba-conteudo">
                     <div class="aba-coluna">
                         <h4>🕒 Horários</h4>
@@ -77,7 +79,6 @@
                         <p>Rua Heide Carneiro, 7</p>
                         <p>Bairro: Trobogy</p>
                         <p>Salvador - BA</p>
-                        <!-- Link real gerado para o Google Maps -->
                         <a class="btn-como-chegar"
                             href="https://www.google.com/maps/dir/?api=1&amp;destination=-12.9283457,-38.407269"
                             target="_blank" rel="noopener">Como chegar</a>
@@ -85,10 +86,9 @@
                 </div>
             </div>
 
-            <a class="btn btn-small" href="https://wa.me/5571993702038?text=Olá, gostaria de agendar um horário!"
-                target="_blank">Agendar</a>
-
-
+            <a class="btn btn-small"
+                href="https://wa.me/5571993702038?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!"
+                target="_blank" rel="noopener">Agendar</a>
         </nav>
     </header>
 
@@ -101,12 +101,70 @@
                     sente e saia do seu jeito.</p>
                 <div class="hero-actions">
                     <a class="btn btn-small"
-                        href="https://wa.me/5571993702038?text=Olá, gostaria de agendar um horário!"
-                        target="_blank">Agendar</a>
+                        href="https://wa.me/5571993702038?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!"
+                        target="_blank" rel="noopener">Agendar</a>
                     <a class="link" href="#servicos">Ver serviços e preços</a>
                 </div>
             </div>
             <div class="pole" aria-hidden="true"></div>
+        </section>
+
+        <section class="vitrine" aria-label="Destaques dos nossos trabalhos">
+            <div class="vitrine-track" id="vitrineTrack">
+                <div class="vitrine-slide">
+                    <img src="fotos/corte-01.jpg" alt="Fade com desenho na risca, feito no Studio B'Sant" loading="eager">
+                    <div class="vitrine-overlay" aria-hidden="true"></div>
+                    <div class="vitrine-legenda">
+                        <p class="vitrine-eyebrow">Studio B'Sant</p>
+                        <p class="vitrine-titulo">Fade com risca</p>
+                    </div>
+                </div>
+                <div class="vitrine-slide">
+                    <img src="fotos/tranca-01.jpg" alt="Trança nagô presa, feita no Studio B'Sant" loading="lazy">
+                    <div class="vitrine-overlay" aria-hidden="true"></div>
+                    <div class="vitrine-legenda">
+                        <p class="vitrine-eyebrow">Studio B'Sant</p>
+                        <p class="vitrine-titulo">Trança nagô</p>
+                    </div>
+                </div>
+                <div class="vitrine-slide">
+                    <img src="fotos/corte-04.jpg" alt="Corte com desenho em ziguezague e coloração, feito no Studio B'Sant" loading="lazy">
+                    <div class="vitrine-overlay" aria-hidden="true"></div>
+                    <div class="vitrine-legenda">
+                        <p class="vitrine-eyebrow">Studio B'Sant</p>
+                        <p class="vitrine-titulo">Corte com desenho e coloração</p>
+                    </div>
+                </div>
+                <div class="vitrine-slide">
+                    <img src="fotos/tranca-02.jpg" alt="Box braids com miçangas, feita no Studio B'Sant" loading="lazy">
+                    <div class="vitrine-overlay" aria-hidden="true"></div>
+                    <div class="vitrine-legenda">
+                        <p class="vitrine-eyebrow">Studio B'Sant</p>
+                        <p class="vitrine-titulo">Box braids com miçangas</p>
+                    </div>
+                </div>
+                <div class="vitrine-slide">
+                    <img src="fotos/tranca-03.jpg" alt="Trança colorida com coque, feita no Studio B'Sant" loading="lazy">
+                    <div class="vitrine-overlay" aria-hidden="true"></div>
+                    <div class="vitrine-legenda">
+                        <p class="vitrine-eyebrow">Studio B'Sant</p>
+                        <p class="vitrine-titulo">Trança colorida com coque</p>
+                    </div>
+                </div>
+                <div class="vitrine-slide">
+                    <img src="fotos/tranca-06.jpg" alt="Trança nagô vista de costas, feita no Studio B'Sant" loading="lazy">
+                    <div class="vitrine-overlay" aria-hidden="true"></div>
+                    <div class="vitrine-legenda">
+                        <p class="vitrine-eyebrow">Studio B'Sant</p>
+                        <p class="vitrine-titulo">Trança nagô, comprimento total</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="vitrine-seta vitrine-seta--prev" id="vitrinePrev" type="button" aria-label="Foto anterior">‹</button>
+            <button class="vitrine-seta vitrine-seta--next" id="vitrineNext" type="button" aria-label="Próxima foto">›</button>
+
+            <div class="vitrine-dots" id="vitrineDots" role="tablist" aria-label="Selecionar foto do carrossel"></div>
         </section>
 
         <section class="section" id="servicos">
@@ -167,7 +225,128 @@
                     </div><span>A partir de R$ 400</span>
                 </li>
             </ul>
-            
+        </section>
+
+        <section class="section" id="galeria">
+            <h2>Nossos trabalhos</h2>
+
+            <div class="galeria-filtros" role="tablist" aria-label="Filtrar trabalhos por categoria">
+                <button class="filtro-btn is-active" data-filtro="todos" type="button">Todos</button>
+                <button class="filtro-btn" data-filtro="cortes" type="button">Cortes</button>
+                <button class="filtro-btn" data-filtro="barbas" type="button">Barbas</button>
+                <button class="filtro-btn" data-filtro="sobrancelhas" type="button">Sobrancelhas</button>
+                <button class="filtro-btn" data-filtro="pigmentacoes" type="button">Pigmentações</button>
+                <button class="filtro-btn" data-filtro="hairline" type="button">Hairline</button>
+                <button class="filtro-btn" data-filtro="platinados" type="button">Platinados</button>
+                <button class="filtro-btn" data-filtro="luzes" type="button">Luzes</button>
+                <button class="filtro-btn" data-filtro="trancas" type="button">Tranças</button>
+                <button class="filtro-btn" data-filtro="proteses" type="button">Próteses capilares</button>
+            </div>
+
+            <ul class="galeria-grid">
+                <li class="galeria-item" data-categoria="cortes">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/corte-01.jpg" alt="Fade com desenho na risca, feito no Studio B'Sant" loading="lazy" width="900" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="cortes">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/corte-02.jpg" alt="Taper fade em cabelo crespo, feito no Studio B'Sant" loading="lazy" width="900" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="cortes">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/corte-03.jpg" alt="Corte baixo com acabamento na risca, feito no Studio B'Sant" loading="lazy" width="900" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="cortes">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/corte-04.jpg" alt="Corte com desenho em ziguezague e coloração, feito no Studio B'Sant" loading="lazy" width="900" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="cortes">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/corte-05.jpg" alt="Corte com risca e barba feita, no Studio B'Sant" loading="lazy" width="900" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="cortes">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/corte-06.jpg" alt="Fade com desenho na têmpora, feito no Studio B'Sant" loading="lazy" width="900" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-01.jpg" alt="Trança nagô presa, feita no Studio B'Sant" loading="lazy" width="900" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-02.jpg" alt="Box braids com miçangas, feita no Studio B'Sant" loading="lazy" width="889" height="1186">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-03.jpg" alt="Trança colorida com coque, feita no Studio B'Sant" loading="lazy" width="722" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-04.jpg" alt="Trança nagô vista de cima, feita no Studio B'Sant" loading="lazy" width="682" height="792">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-05.jpg" alt="Trança lateral com acabamento cacheado, feita no Studio B'Sant" loading="lazy" width="675" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-06.jpg" alt="Trança nagô vista de costas, feita no Studio B'Sant" loading="lazy" width="793" height="1058">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-07.jpg" alt="Trança nagô colorida, feita no Studio B'Sant" loading="lazy" width="828" height="957">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-08.jpg" alt="Trança com finalização em cacho solto, feita no Studio B'Sant" loading="lazy" width="900" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-09.jpg" alt="Trança com cacho bem definido, feita no Studio B'Sant" loading="lazy" width="694" height="1200">
+                    </button>
+                </li>
+                <li class="galeria-item" data-categoria="trancas">
+                    <button class="galeria-foto" type="button">
+                        <img src="fotos/tranca-10.jpg" alt="Trança com cacho longo e volumoso, feita no Studio B'Sant" loading="lazy" width="739" height="910">
+                    </button>
+                </li>
+            </ul>
+
+            <p class="galeria-vazio" hidden>Nenhum trabalho nessa categoria ainda.</p>
+        </section>
+
+        <section class="section" id="destaques">
+            <h2>Veja em vídeo</h2>
+            <p class="destaques-lead">Um gostinho do resultado em movimento. Toque para assistir.</p>
+
+            <ul class="destaques-grid">
+                <li class="destaque-item">
+                    <button class="destaque-video" type="button" data-video="videos/destaque-01.mp4" aria-label="Assistir vídeo de cabelo cacheado com luzes">
+                        <img src="videos/destaque-01-capa.jpg" alt="Capa do vídeo de cabelo cacheado com luzes" loading="lazy" width="464" height="832">
+                        <span class="destaque-play" aria-hidden="true">▶</span>
+                    </button>
+                </li>
+                <li class="destaque-item">
+                    <button class="destaque-video" type="button" data-video="videos/destaque-02.mp4" aria-label="Assistir vídeo de cabelo cacheado">
+                        <img src="videos/destaque-02-capa.jpg" alt="Capa do vídeo de cabelo cacheado" loading="lazy" width="464" height="832">
+                        <span class="destaque-play" aria-hidden="true">▶</span>
+                    </button>
+                </li>
+            </ul>
         </section>
 
         <section class="section section-dark" id="sobre">
@@ -181,11 +360,38 @@
                 </div>
             </div>
         </section>
+
+        <section class="section" id="espaco">
+            <h2>Nosso espaço</h2>
+            <p class="espaco-lead">Um ambiente pensado para você relaxar enquanto é atendido.</p>
+
+            <div class="espaco-grid">
+                <div class="espaco-foto espaco-foto--grande">
+                    <img src="fotos/espaco-01.jpg" alt="Sala de espera do Studio B'Sant, com poltronas, plantas e janela" loading="lazy" width="681" height="1200">
+                </div>
+                <div class="espaco-foto">
+                    <img src="fotos/espaco-02.jpg" alt="Entrada do Studio B'Sant, com tapete da marca" loading="lazy" width="702" height="1200">
+                </div>
+                <div class="espaco-foto">
+                    <img src="fotos/espaco-03.jpg" alt="Bancada de trabalho do Studio B'Sant, com ferramentas e produtos" loading="lazy" width="704" height="1200">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
         <p>&copy; <span id="year"></span> Studio B'Sant Barbershop e Hair Style</p>
     </footer>
+
+    <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox-fechar" id="lightboxFechar" type="button" aria-label="Fechar imagem">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    </div>
+
+    <div class="video-modal" id="videoModal" hidden>
+        <button class="video-modal-fechar" id="videoModalFechar" type="button" aria-label="Fechar vídeo">&times;</button>
+        <video id="videoPlayer" class="video-modal-player" controls playsinline></video>
+    </div>
 
     <script src="script.js"></script>
 </body>

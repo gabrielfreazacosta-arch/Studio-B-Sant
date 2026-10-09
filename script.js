@@ -28,7 +28,7 @@ function setMenu(open) {
 menuBtn.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
 nav.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
 
-/* ---------- Aba "Funcionamento e Local" (computador) ---------- */
+/* ---------- Aba "Horários e local" (computador) ---------- */
 function setAba(open) {
   aba.classList.toggle("mostrar", open);
   abaBtn.setAttribute("aria-expanded", String(open));
@@ -40,7 +40,6 @@ if (abaBtn && aba) {
     setAba(!aba.classList.contains("mostrar"));
   });
 
-  // Fecha ao clicar fora
   document.addEventListener("click", (e) => {
     if (!aba.contains(e.target) && e.target !== abaBtn) setAba(false);
   });
@@ -52,3 +51,167 @@ document.addEventListener("keydown", (e) => {
   setMenu(false);
   if (abaBtn && aba) setAba(false);
 });
+
+/* ---------- Vitrine: carrossel de fotos em destaque ---------- */
+const vitrineTrack = document.getElementById("vitrineTrack");
+const vitrinePrev = document.getElementById("vitrinePrev");
+const vitrineNext = document.getElementById("vitrineNext");
+const vitrineDotsBox = document.getElementById("vitrineDots");
+
+if (vitrineTrack) {
+  const slides = vitrineTrack.querySelectorAll(".vitrine-slide");
+  const total = slides.length;
+  let indice = 0;
+  let timer = null;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "vitrine-dot";
+    dot.setAttribute("aria-label", `Ir para a foto ${i + 1}`);
+    dot.addEventListener("click", () => irPara(i));
+    vitrineDotsBox.appendChild(dot);
+  });
+  const dots = vitrineDotsBox.querySelectorAll(".vitrine-dot");
+
+  function atualizar() {
+    vitrineTrack.style.transform = `translateX(-${indice * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle("is-active", i === indice));
+  }
+
+  function irPara(i) {
+    indice = (i + total) % total;
+    atualizar();
+    reiniciarAutoplay();
+  }
+
+  function proximo() { irPara(indice + 1); }
+  function anterior() { irPara(indice - 1); }
+
+  const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function iniciarAutoplay() {
+    if (semMovimento) return;
+    timer = setInterval(() => {
+      indice = (indice + 1) % total;
+      atualizar();
+    }, 4500);
+  }
+
+  function pararAutoplay() {
+    if (timer) clearInterval(timer);
+  }
+
+  function reiniciarAutoplay() {
+    pararAutoplay();
+    iniciarAutoplay();
+  }
+
+  vitrineNext.addEventListener("click", proximo);
+  vitrinePrev.addEventListener("click", anterior);
+
+  const vitrineContainer = vitrineTrack.closest(".vitrine");
+  vitrineContainer.addEventListener("mouseenter", pararAutoplay);
+  vitrineContainer.addEventListener("mouseleave", iniciarAutoplay);
+
+  atualizar();
+  iniciarAutoplay();
+}
+
+/* ---------- Galeria: filtro por categoria ---------- */
+const filtroBtns = document.querySelectorAll(".filtro-btn");
+const galeriaItens = document.querySelectorAll(".galeria-item");
+const galeriaVazio = document.querySelector(".galeria-vazio");
+
+filtroBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    filtroBtns.forEach((b) => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+
+    const categoria = btn.dataset.filtro;
+    let algumVisivel = false;
+
+    galeriaItens.forEach((item) => {
+      const mostra = categoria === "todos" || item.dataset.categoria === categoria;
+      item.classList.toggle("is-oculto", !mostra);
+      if (mostra) algumVisivel = true;
+    });
+
+    if (galeriaVazio) galeriaVazio.hidden = algumVisivel;
+  });
+});
+
+/* ---------- Galeria: lightbox (ampliar foto) ---------- */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxFechar = document.getElementById("lightboxFechar");
+
+function abrirLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.hidden = false;
+}
+
+function fecharLightbox() {
+  lightbox.hidden = true;
+  lightboxImg.src = "";
+}
+
+document.querySelectorAll(".galeria-foto").forEach((botao) => {
+  botao.addEventListener("click", () => {
+    const img = botao.querySelector("img");
+    abrirLightbox(img.src, img.alt);
+  });
+});
+
+lightboxFechar.addEventListener("click", fecharLightbox);
+lightbox.addEventListener("click", (e) => { if (e.target === lightbox) fecharLightbox(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !lightbox.hidden) fecharLightbox(); });
+
+/* ---------- Destaques em vídeo ---------- */
+const videoModal = document.getElementById("videoModal");
+const videoPlayer = document.getElementById("videoPlayer");
+const videoModalFechar = document.getElementById("videoModalFechar");
+
+function abrirVideo(src) {
+  videoPlayer.src = src;
+  videoModal.hidden = false;
+  videoPlayer.play();
+}
+
+function fecharVideo() {
+  videoPlayer.pause();
+  videoPlayer.removeAttribute("src");
+  videoPlayer.load();
+  videoModal.hidden = true;
+}
+
+document.querySelectorAll(".destaque-video").forEach((botao) => {
+  botao.addEventListener("click", () => abrirVideo(botao.dataset.video));
+});
+
+videoModalFechar.addEventListener("click", fecharVideo);
+videoModal.addEventListener("click", (e) => { if (e.target === videoModal) fecharVideo(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !videoModal.hidden) fecharVideo(); });
+
+/* ---------- "Sobre": anima ao entrar na tela ---------- */
+const sobreSection = document.getElementById("sobre");
+
+if (sobreSection) {
+  const semMovimentoSobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (semMovimentoSobre) {
+    sobreSection.classList.add("is-visible");
+  } else {
+    const observer = new IntersectionObserver((entradas, obs) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+          sobreSection.classList.add("is-visible");
+          obs.unobserve(sobreSection); // anima só uma vez
+        }
+      });
+    }, { threshold: 0.25 });
+
+    observer.observe(sobreSection);
+  }
+}
