@@ -26,67 +26,73 @@
         <nav class="nav" id="nav" aria-label="Principal">
             <div class="nav-info">
                 <details>
-                    <summary>Horários e local</summary>
+                    <summary><span data-i18n="horarios.summary">Horários e local</span></summary>
 
                     <div class="info-body">
-                        <h3>Horários</h3>
+                        <h3 data-i18n="horarios.titulo">Horários</h3>
                         <dl class="info-hours">
                             <div>
-                                <dt>Segunda a sexta</dt>
+                                <dt data-i18n="horarios.segsex">Segunda a sexta</dt>
                                 <dd>09h às 20h</dd>
                             </div>
                             <div>
-                                <dt>Sábado</dt>
+                                <dt data-i18n="horarios.sab">Sábado</dt>
                                 <dd>08h às 18h</dd>
                             </div>
                             <div>
-                                <dt>Domingo</dt>
-                                <dd>Fechado</dd>
+                                <dt data-i18n="horarios.dom">Domingo</dt>
+                                <dd data-i18n="horarios.fechado">Fechado</dd>
                             </div>
                         </dl>
 
-                        <h3>Endereço</h3>
+                        <h3 data-i18n="horarios.endereco">Endereço</h3>
                         <address>R. Heide Carneiro, 7 - Trobogy<br>Salvador - BA, 41745-135</address>
 
                         <a class="btn btn-block"
                             href="https://www.google.com/maps/dir/?api=1&amp;destination=-12.9283457,-38.407269"
-                            target="_blank" rel="noopener">Como chegar</a>
+                            target="_blank" rel="noopener"><span data-i18n="horarios.comochegar">Como chegar</span></a>
                     </div>
                 </details>
             </div>
 
-            <a href="#servicos">Serviços</a>
-            <a href="#galeria">Galeria</a>
-            <a href="#destaques">Vídeos</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#espaco">Nosso Espaço</a>
+            <a href="#servicos" data-i18n="nav.servicos">Serviços</a>
+            <a href="#galeria" data-i18n="nav.galeria">Galeria</a>
+            <a href="#destaques" data-i18n="nav.videos">Vídeos</a>
+            <a href="#sobre" data-i18n="nav.sobre">Sobre</a>
+            <a href="#espaco" data-i18n="nav.espaco">Nosso Espaço</a>
 
             <div class="menu-dropdown-container">
                 <button id="btn-funcionamento" class="menu-drop-btn" type="button" aria-expanded="false"
                     aria-controls="aba-informacoes">
-                    Horários e local ▾
+                    <span data-i18n="horarios.summary">Horários e local</span> ▾
                 </button>
 
                 <div id="aba-informacoes" class="aba-conteudo">
                     <div class="aba-coluna">
-                        <h4>🕒 Horários</h4>
-                        <p>Segunda a sexta: 09h às 20h</p>
-                        <p>Sábado: 08h às 18h. Domingo: fechado.</p>
+                        <h4>🕒 <span data-i18n="horarios.titulo">Horários</span></h4>
+                        <p data-i18n="horarios.desktopLinha1">Segunda a sexta: 09h às 20h</p>
+                        <p data-i18n="horarios.desktopLinha2">Sábado: 08h às 18h. Domingo: fechado.</p>
                     </div>
 
                     <div class="aba-coluna">
-                        <h4>📍 Localização</h4>
+                        <h4>📍 <span data-i18n="horarios.localizacao">Localização</span></h4>
                         <p>Rua Heide Carneiro, 7</p>
                         <p>Bairro: Trobogy</p>
                         <p>Salvador - BA</p>
                         <a class="btn-como-chegar"
                             href="https://www.google.com/maps/dir/?api=1&amp;destination=-12.9283457,-38.407269"
-                            target="_blank" rel="noopener">Como chegar</a>
+                            target="_blank" rel="noopener"><span data-i18n="horarios.comochegar">Como chegar</span></a>
                     </div>
                 </div>
             </div>
 
-            <a class="btn btn-small"
+            <div class="idioma-switch" role="group" aria-label="Selecionar idioma">
+                <button type="button" class="idioma-btn is-active" data-lang="pt">PT</button>
+                <button type="button" class="idioma-btn" data-lang="en">EN</button>
+                <button type="button" class="idioma-btn" data-lang="es">ES</button>
+            </div>
+
+            <a class="btn btn-small" data-i18n="acao.agendar"
                 href="https://wa.me/5571993702038?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!"
                 target="_blank" rel="noopener">Agendar</a>
         </nav>
@@ -95,15 +101,15 @@
     <main>
         <section class="hero" id="inicio">
             <div class="hero-text">
-                <p class="hero-tag">Barbershop e Hair Style</p>
+                <p class="hero-tag" data-i18n="hero.tag">Barbershop e Hair Style</p>
                 <h1>Studio B'Sant</h1>
-                <p class="hero-lead">Corte na régua, barba bem desenhada e o cuidado de quem entende de cabelo. Chegue,
-                    sente e saia do seu jeito.</p>
+                <p class="hero-lead" data-i18n="hero.lead">Corte na régua, barba bem desenhada e o cuidado de quem
+                    entende de cabelo. Chegue, sente e saia do seu jeito.</p>
                 <div class="hero-actions">
-                    <a class="btn btn-small"
+                    <a class="btn btn-small" data-i18n="acao.agendar"
                         href="https://wa.me/5571993702038?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!"
                         target="_blank" rel="noopener">Agendar</a>
-                    <a class="link" href="#servicos">Ver serviços e preços</a>
+                    <a class="link" href="#servicos" data-i18n="hero.verservicos">Ver serviços e preços</a>
                 </div>
             </div>
             <div class="pole" aria-hidden="true"></div>
@@ -116,7 +122,7 @@
                     <div class="vitrine-overlay" aria-hidden="true"></div>
                     <div class="vitrine-legenda">
                         <p class="vitrine-eyebrow">Studio B'Sant</p>
-                        <p class="vitrine-titulo">Fade com risca</p>
+                        <p class="vitrine-titulo" data-i18n="vitrine.slide1">Fade com risca</p>
                     </div>
                 </div>
                 <div class="vitrine-slide">
@@ -124,7 +130,7 @@
                     <div class="vitrine-overlay" aria-hidden="true"></div>
                     <div class="vitrine-legenda">
                         <p class="vitrine-eyebrow">Studio B'Sant</p>
-                        <p class="vitrine-titulo">Trança nagô</p>
+                        <p class="vitrine-titulo" data-i18n="vitrine.slide2">Trança nagô</p>
                     </div>
                 </div>
                 <div class="vitrine-slide">
@@ -132,7 +138,7 @@
                     <div class="vitrine-overlay" aria-hidden="true"></div>
                     <div class="vitrine-legenda">
                         <p class="vitrine-eyebrow">Studio B'Sant</p>
-                        <p class="vitrine-titulo">Corte com desenho e coloração</p>
+                        <p class="vitrine-titulo" data-i18n="vitrine.slide3">Corte com desenho e coloração</p>
                     </div>
                 </div>
                 <div class="vitrine-slide">
@@ -140,7 +146,7 @@
                     <div class="vitrine-overlay" aria-hidden="true"></div>
                     <div class="vitrine-legenda">
                         <p class="vitrine-eyebrow">Studio B'Sant</p>
-                        <p class="vitrine-titulo">Box braids com miçangas</p>
+                        <p class="vitrine-titulo" data-i18n="vitrine.slide4">Box braids com miçangas</p>
                     </div>
                 </div>
                 <div class="vitrine-slide">
@@ -148,7 +154,7 @@
                     <div class="vitrine-overlay" aria-hidden="true"></div>
                     <div class="vitrine-legenda">
                         <p class="vitrine-eyebrow">Studio B'Sant</p>
-                        <p class="vitrine-titulo">Trança colorida com coque</p>
+                        <p class="vitrine-titulo" data-i18n="vitrine.slide5">Trança colorida com coque</p>
                     </div>
                 </div>
                 <div class="vitrine-slide">
@@ -156,7 +162,7 @@
                     <div class="vitrine-overlay" aria-hidden="true"></div>
                     <div class="vitrine-legenda">
                         <p class="vitrine-eyebrow">Studio B'Sant</p>
-                        <p class="vitrine-titulo">Trança nagô, comprimento total</p>
+                        <p class="vitrine-titulo" data-i18n="vitrine.slide6">Trança nagô, comprimento total</p>
                     </div>
                 </div>
             </div>
@@ -168,79 +174,79 @@
         </section>
 
         <section class="section" id="servicos">
-            <h2>Serviços</h2>
+            <h2 data-i18n="nav.servicos">Serviços</h2>
             <ul class="menu-list">
                 <li>
                     <div>
-                        <h3>Corte</h3>
-                        <p>Na régua, com acabamento na navalha.</p>
+                        <h3 data-i18n="corte.nome">Corte</h3>
+                        <p data-i18n="corte.desc">Na régua, com acabamento na navalha.</p>
                     </div><span>R$ 40</span>
                 </li>
                 <li>
                     <div>
-                        <h3>Barba</h3>
-                        <p>Desenho preciso e toalha quente.</p>
+                        <h3 data-i18n="barba.nome">Barba</h3>
+                        <p data-i18n="barba.desc">Desenho preciso e toalha quente.</p>
                     </div><span>R$ 25</span>
                 </li>
                 <li>
                     <div>
-                        <h3>Sobrancelha</h3>
-                        <p>Na navalha, com traço natural.</p>
+                        <h3 data-i18n="sobrancelha.nome">Sobrancelha</h3>
+                        <p data-i18n="sobrancelha.desc">Na navalha, com traço natural.</p>
                     </div><span>R$ 15</span>
                 </li>
                 <li>
                     <div>
-                        <h3>Pigmentação</h3>
-                        <p>Disfarça falhas e reforça o desenho.</p>
+                        <h3 data-i18n="pigmentacao.nome">Pigmentação</h3>
+                        <p data-i18n="pigmentacao.desc">Disfarça falhas e reforça o desenho.</p>
                     </div><span>R$ 20</span>
                 </li>
                 <li>
                     <div>
-                        <h3>Hairline (pezinho)</h3>
-                        <p>Contorno alinhado, visual sempre em dia.</p>
+                        <h3 data-i18n="hairline.nome">Hairline (pezinho)</h3>
+                        <p data-i18n="hairline.desc">Contorno alinhado, visual sempre em dia.</p>
                     </div><span>R$ 15</span>
                 </li>
                 <li>
                     <div>
-                        <h3>Platinado</h3>
-                        <p>Transformação completa, visual de destaque.</p>
+                        <h3 data-i18n="platinado.nome">Platinado</h3>
+                        <p data-i18n="platinado.desc">Transformação completa, visual de destaque.</p>
                     </div><span>R$ 130</span>
                 </li>
                 <li>
                     <div>
-                        <h3>Luzes</h3>
-                        <p>Mechas naturais, sem perder a raiz.</p>
+                        <h3 data-i18n="luzes.nome">Luzes</h3>
+                        <p data-i18n="luzes.desc">Mechas naturais, sem perder a raiz.</p>
                     </div><span>R$ 80</span>
                 </li>
                 <li>
                     <div>
-                        <h3>Tranças e cacheados</h3>
-                        <p>Estilo autêntico, feito para durar.</p>
+                        <h3 data-i18n="trancas.nome">Tranças e cacheados</h3>
+                        <p data-i18n="trancas.desc">Estilo autêntico, feito para durar.</p>
                     </div><span>A partir de R$ 60</span>
                 </li>
                 <li>
                     <div>
-                        <h3>Prótese capilar fio a fio</h3>
-                        <p>Densidade natural, resultado indetectável.</p>
+                        <h3 data-i18n="protese.nome">Prótese capilar fio a fio</h3>
+                        <p data-i18n="protese.desc">Densidade natural, resultado indetectável.</p>
                     </div><span>A partir de R$ 400</span>
                 </li>
             </ul>
         </section>
 
         <section class="section" id="galeria">
-            <h2>Nossos trabalhos</h2>
+            <h2 data-i18n="galeria.titulo">Nossos trabalhos</h2>
 
             <div class="galeria-filtros" role="tablist" aria-label="Filtrar trabalhos por categoria">
-                <button class="filtro-btn is-active" data-filtro="todos" type="button">Todos</button>
-                <button class="filtro-btn" data-filtro="cortes" type="button">Cortes</button>
-                <button class="filtro-btn" data-filtro="barbas" type="button">Barbas</button>
-                <button class="filtro-btn" data-filtro="sobrancelhas" type="button">Sobrancelhas</button>
-                <button class="filtro-btn" data-filtro="pigmentacoes" type="button">Pigmentações</button>
-                <button class="filtro-btn" data-filtro="hairline" type="button">Hairline</button>
-                <button class="filtro-btn" data-filtro="platinados" type="button">Platinados</button>
-                <button class="filtro-btn" data-filtro="luzes" type="button">Luzes</button>
-                <button class="filtro-btn" data-filtro="trancas" type="button">Tranças</button>
-                <button class="filtro-btn" data-filtro="proteses" type="button">Próteses capilares</button>
+                <button class="filtro-btn is-active" data-filtro="todos" type="button" data-i18n="filtro.todos">Todos</button>
+                <button class="filtro-btn" data-filtro="cortes" type="button" data-i18n="filtro.cortes">Cortes</button>
+                <button class="filtro-btn" data-filtro="barbas" type="button" data-i18n="filtro.barbas">Barbas</button>
+                <button class="filtro-btn" data-filtro="sobrancelhas" type="button" data-i18n="filtro.sobrancelhas">Sobrancelhas</button>
+                <button class="filtro-btn" data-filtro="pigmentacoes" type="button" data-i18n="filtro.pigmentacoes">Pigmentações</button>
+                <button class="filtro-btn" data-filtro="hairline" type="button" data-i18n="filtro.hairline">Hairline</button>
+                <button class="filtro-btn" data-filtro="platinados" type="button" data-i18n="filtro.platinados">Platinados</button>
+                <button class="filtro-btn" data-filtro="luzes" type="button" data-i18n="filtro.luzes">Luzes</button>
+                <button class="filtro-btn" data-filtro="trancas" type="button" data-i18n="filtro.trancas">Tranças</button>
+                <button class="filtro-btn" data-filtro="proteses" type="button" data-i18n="filtro.proteses">Próteses capilares</button>
             </div>
 
             <ul class="galeria-grid">
@@ -326,12 +332,12 @@
                 </li>
             </ul>
 
-            <p class="galeria-vazio" hidden>Nenhum trabalho nessa categoria ainda.</p>
+            <p class="galeria-vazio" hidden data-i18n="galeria.vazio">Nenhum trabalho nessa categoria ainda.</p>
         </section>
 
         <section class="section" id="destaques">
-            <h2>Veja em vídeo</h2>
-            <p class="destaques-lead">Um gostinho do resultado em movimento. Toque para assistir.</p>
+            <h2 data-i18n="videos.titulo">Veja em vídeo</h2>
+            <p class="destaques-lead" data-i18n="videos.lead">Um gostinho do resultado em movimento. Toque para assistir.</p>
 
             <ul class="destaques-grid">
                 <li class="destaque-item">
@@ -351,19 +357,19 @@
 
         <section class="section section-dark" id="sobre">
             <div class="about">
-                <h2>Um espaço para se cuidar sem pressa</h2>
+                <h2 data-i18n="sobre.titulo">Um espaço para se cuidar sem pressa</h2>
                 <div>
-                    <p>O Studio B'Sant nasceu da vontade de unir a tradição da barbearia com o olhar atual do hair
+                    <p data-i18n="sobre.p1">O Studio B'Sant nasceu da vontade de unir a tradição da barbearia com o olhar atual do hair
                         style. Cada atendimento é feito com hora marcada, para você ser atendido sem fila e sem
                         correria.</p>
-                    <p>Ferramentas higienizadas, produtos de qualidade e conversa boa fazem parte do serviço.</p>
+                    <p data-i18n="sobre.p2">Ferramentas higienizadas, produtos de qualidade e conversa boa fazem parte do serviço.</p>
                 </div>
             </div>
         </section>
 
         <section class="section" id="espaco">
-            <h2>Nosso espaço</h2>
-            <p class="espaco-lead">Um ambiente pensado para você relaxar enquanto é atendido.</p>
+            <h2 data-i18n="espaco.titulo">Nosso espaço</h2>
+            <p class="espaco-lead" data-i18n="espaco.lead">Um ambiente pensado para você relaxar enquanto é atendido.</p>
 
             <div class="espaco-grid">
                 <div class="espaco-foto espaco-foto--grande">
