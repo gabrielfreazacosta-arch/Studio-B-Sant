@@ -1015,12 +1015,7 @@ a {
     aspect-ratio: 4 / 5;
   }
 }
-/* ---------- Seletor de idioma ---------- */
-.idioma-switch {
-  display: flex;
-  gap: .4rem;
-}
-
+/* ---------- Seletor de idioma (uma bolinha só) ---------- */
 .idioma-btn {
   width: 34px;
   height: 34px;
@@ -1038,15 +1033,8 @@ a {
   color: var(--tinta);
 }
 
-.idioma-btn.is-active {
-  background: var(--tinta);
-  border-color: var(--tinta);
-  color: var(--bege-claro);
-}
-
 @media (max-width: 760px) {
-  .idioma-switch {
-    justify-content: center;
-    padding: .8rem 0;
+  .idioma-btn {
+    margin: .8rem auto;
   }
 }

@@ -199,6 +199,9 @@ const DICIONARIO = {
   }
 };
 
+const ORDEM_IDIOMAS = ["pt", "en", "es"];
+const idiomaBtn = document.getElementById("idiomaBtn");
+
 function aplicarIdioma(lang) {
   const textos = DICIONARIO[lang];
   if (!textos) return;
@@ -211,9 +214,10 @@ function aplicarIdioma(lang) {
   document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
   localStorage.setItem("bsant-idioma", lang);
 
-  document.querySelectorAll(".idioma-btn").forEach((btn) => {
-    btn.classList.toggle("is-active", btn.dataset.lang === lang);
-  });
+  if (idiomaBtn) {
+    idiomaBtn.textContent = lang.toUpperCase();
+    idiomaBtn.setAttribute("aria-label", `Mudar idioma, atualmente ${lang.toUpperCase()}`);
+  }
 }
 
 const header = document.getElementById("header");
@@ -268,10 +272,16 @@ document.addEventListener("keydown", (e) => {
   if (abaBtn && aba) setAba(false);
 });
 
-/* ---------- Seletor de idioma ---------- */
-document.querySelectorAll(".idioma-btn").forEach((btn) => {
-  btn.addEventListener("click", () => aplicarIdioma(btn.dataset.lang));
-});
+/* ---------- Seletor de idioma (clica e passa pro próximo) ---------- */
+if (idiomaBtn) {
+  idiomaBtn.addEventListener("click", () => {
+    const atual = localStorage.getItem("bsant-idioma") || "pt";
+    const indiceAtual = ORDEM_IDIOMAS.indexOf(atual);
+    const proximo = ORDEM_IDIOMAS[(indiceAtual + 1) % ORDEM_IDIOMAS.length];
+    aplicarIdioma(proximo);
+  });
+}
+
 aplicarIdioma(localStorage.getItem("bsant-idioma") || "pt");
 
 /* ---------- Vitrine: carrossel de fotos em destaque ---------- */
