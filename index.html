@@ -20,9 +20,12 @@
 
     <header class="header" id="header">
         <a class="logo" href="#inicio">Studio B'Sant</a>
-        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
-            <span></span><span></span>
-        </button>
+                <div class="header-mobile-actions">
+            <button type="button" class="idioma-btn idioma-btn--mobile" id="idiomaBtnMobile" aria-label="Mudar idioma, atualmente português">PT</button>
+            <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+                <span></span><span></span>
+            </button>
+        </div>
         <nav class="nav" id="nav" aria-label="Principal">
             <div class="nav-info">
                 <details>
@@ -86,8 +89,7 @@
                 </div>
             </div>
 
-                        <button type="button" class="idioma-btn" id="idiomaBtn" aria-label="Mudar idioma, atualmente português">PT</button>
-
+                                   <button type="button" class="idioma-btn idioma-btn--desktop" id="idiomaBtn" aria-label="Mudar idioma, atualmente português">PT</button>
             <a class="btn btn-small" data-i18n="acao.agendar"
                 href="https://wa.me/5571993702038?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!"
                 target="_blank" rel="noopener">Agendar</a>

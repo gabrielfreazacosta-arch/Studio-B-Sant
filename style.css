@@ -1033,8 +1033,18 @@ a {
   color: var(--tinta);
 }
 
+.header-mobile-actions {
+  display: none;
+  align-items: center;
+  gap: .6rem;
+}
+
 @media (max-width: 760px) {
-  .idioma-btn {
-    margin: .8rem auto;
+  .header-mobile-actions {
+    display: flex;
+  }
+
+  .idioma-btn--desktop {
+    display: none;
   }
 }

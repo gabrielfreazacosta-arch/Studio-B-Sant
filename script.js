@@ -200,7 +200,7 @@ const DICIONARIO = {
 };
 
 const ORDEM_IDIOMAS = ["pt", "en", "es"];
-const idiomaBtn = document.getElementById("idiomaBtn");
+const idiomaBtns = document.querySelectorAll(".idioma-btn");
 
 function aplicarIdioma(lang) {
   const textos = DICIONARIO[lang];
@@ -214,10 +214,10 @@ function aplicarIdioma(lang) {
   document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
   localStorage.setItem("bsant-idioma", lang);
 
-  if (idiomaBtn) {
-    idiomaBtn.textContent = lang.toUpperCase();
-    idiomaBtn.setAttribute("aria-label", `Mudar idioma, atualmente ${lang.toUpperCase()}`);
-  }
+  idiomaBtns.forEach((btn) => {
+    btn.textContent = lang.toUpperCase();
+    btn.setAttribute("aria-label", `Mudar idioma, atualmente ${lang.toUpperCase()}`);
+  });
 }
 
 const header = document.getElementById("header");
@@ -273,14 +273,14 @@ document.addEventListener("keydown", (e) => {
 });
 
 /* ---------- Seletor de idioma (clica e passa pro próximo) ---------- */
-if (idiomaBtn) {
-  idiomaBtn.addEventListener("click", () => {
+idiomaBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
     const atual = localStorage.getItem("bsant-idioma") || "pt";
     const indiceAtual = ORDEM_IDIOMAS.indexOf(atual);
     const proximo = ORDEM_IDIOMAS[(indiceAtual + 1) % ORDEM_IDIOMAS.length];
     aplicarIdioma(proximo);
   });
-}
+});
 
 aplicarIdioma(localStorage.getItem("bsant-idioma") || "pt");
 
