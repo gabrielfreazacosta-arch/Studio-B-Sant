@@ -22,7 +22,7 @@ function setMenu(open) {
   nav.classList.toggle("open", open);
   menuBtn.setAttribute("aria-expanded", String(open));
   menuBtn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
-  if (!open && info) info.open = false; // fecha a sanfona junto com o menu
+  if (!open && info) info.open = false;
 }
 
 menuBtn.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
@@ -155,7 +155,25 @@ function abrirLightbox(src, alt) {
 function fecharLightbox() {
   lightbox.hidden = true;
   lightboxImg.src = "";
+  lightboxImg.classList.remove("is-zoomed");
+  lightbox.classList.remove("is-zoomed");
 }
+
+function alternarZoom() {
+  const zoom = lightboxImg.classList.toggle("is-zoomed");
+  lightbox.classList.toggle("is-zoomed", zoom);
+  if (zoom) {
+    requestAnimationFrame(() => {
+      lightbox.scrollLeft = (lightbox.scrollWidth - lightbox.clientWidth) / 2;
+      lightbox.scrollTop = (lightbox.scrollHeight - lightbox.clientHeight) / 2;
+    });
+  }
+}
+
+lightboxImg.addEventListener("click", (e) => {
+  e.stopPropagation();
+  alternarZoom();
+});
 
 document.querySelectorAll(".galeria-foto").forEach((botao) => {
   botao.addEventListener("click", () => {
@@ -194,24 +212,30 @@ videoModalFechar.addEventListener("click", fecharVideo);
 videoModal.addEventListener("click", (e) => { if (e.target === videoModal) fecharVideo(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !videoModal.hidden) fecharVideo(); });
 
-/* ---------- "Sobre": anima ao entrar na tela ---------- */
-const sobreSection = document.getElementById("sobre");
+/* ---------- Seções que animam ao entrar na tela ---------- */
+function animarAoEntrar(id) {
+  const secao = document.getElementById(id);
+  if (!secao) return;
 
-if (sobreSection) {
-  const semMovimentoSobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (semMovimentoSobre) {
-    sobreSection.classList.add("is-visible");
-  } else {
-    const observer = new IntersectionObserver((entradas, obs) => {
-      entradas.forEach((entrada) => {
-        if (entrada.isIntersecting) {
-          sobreSection.classList.add("is-visible");
-          obs.unobserve(sobreSection); // anima só uma vez
-        }
-      });
-    }, { threshold: 0.25 });
-
-    observer.observe(sobreSection);
+  if (semMovimento) {
+    secao.classList.add("is-visible");
+    return;
   }
+
+  const observer = new IntersectionObserver((entradas, obs) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        secao.classList.add("is-visible");
+        obs.unobserve(secao);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(secao);
 }
+
+animarAoEntrar("sobre");
+animarAoEntrar("galeria");
+animarAoEntrar("espaco");

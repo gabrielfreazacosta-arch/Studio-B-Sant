@@ -24,7 +24,15 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0;@media (prefers-reduced-motion: reduce) {
+
+  #sobre .about>*,
+  #sobre.is-visible .about>* {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
   font-family: "Figtree", system-ui, sans-serif;
   font-size: 1.0625rem;
   line-height: 1.6;
@@ -249,7 +257,6 @@ a {
   object-fit: cover;
 }
 
-/* Camada escura sobre a foto inteira, pra dar o efeito "apagado" */
 .vitrine-overlay {
   position: absolute;
   inset: 0;
@@ -405,7 +412,31 @@ a {
     transition: none;
   }
 }
+/* Entrada animada da Galeria e do Nosso Espaço, ao rolar até eles */
+#galeria .galeria-grid,
+#espaco .espaco-grid {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
 
+#galeria.is-visible .galeria-grid,
+#espaco.is-visible .espaco-grid {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  #galeria .galeria-grid,
+  #espaco .espaco-grid,
+  #galeria.is-visible .galeria-grid,
+  #espaco.is-visible .espaco-grid {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 /* Lista de serviços */
 .menu-list {
   list-style: none;
@@ -804,10 +835,27 @@ a {
   display: none;
 }
 
+.lightbox.is-zoomed {
+  display: block;
+  overflow: auto;
+  padding: 0;
+}
+
 .lightbox-img {
   max-width: 100%;
   max-height: 90vh;
   border-radius: var(--radius);
+  cursor: zoom-in;
+}
+
+.lightbox-img.is-zoomed {
+  max-width: none;
+  max-height: none;
+  width: 200%;
+  display: block;
+  margin: 0 auto;
+  cursor: zoom-out;
+  border-radius: 0;
 }
 
 .lightbox-fechar {
